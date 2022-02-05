@@ -48,6 +48,8 @@ int main(void)
 	create_garbage_list(ptr, garbage);
 	ptr = malloc(4500);
 	create_garbage_list(ptr, garbage);
+	ptr = malloc(6000);
+	create_garbage_list(ptr, garbage);
 
 	free_garbage_list(garbage);
 }
