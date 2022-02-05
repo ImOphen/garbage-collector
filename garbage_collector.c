@@ -13,6 +13,8 @@ t_garbage *create_garbage_list(void *ptr, t_garbage *head)
 	t_garbage *garbage;
 
 	garbage = malloc(sizeof(t_garbage));
+	if (!garbage)
+		return (printf("error during allocation"), exit(1), NULL);
 	garbage->ptr = ptr;
 	garbage->next = NULL;
 	while(head && head->next)
@@ -42,7 +44,7 @@ int main(void)
 
 	char *ptr = malloc(1000);
 	create_garbage_list(ptr, garbage);
-	ptr = malloc(1500);
+	ptr = strdup("lol");
 	create_garbage_list(ptr, garbage);
 	ptr = malloc(3000);
 	create_garbage_list(ptr, garbage);
